@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="org.systematicsheep.accounts.reader"
+    version="0.0.1">
+    <name>Account Reader</name>
+    <description>Read account names available on device.</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,account,android</keywords>
+
+    <repo>https://github.com/mehernosh/cordova-read-identity.git</repo>
+    
+
+    <js-module src="www/js/accountreader.js" name="AccountReader">
+        <clobbers target="AccountReader" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AccountReader" >
+                <param name="android-package" value="org.systematicsheep.accounts.AccountReader"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+    		<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+        </config-file>
+
+        <source-file src="src/android/AccountReader.java" target-dir="src/org/systematicsheep/accounts" />
+        
+    </platform>
+</plugin>
