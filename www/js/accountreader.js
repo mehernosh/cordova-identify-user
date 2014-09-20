@@ -30,16 +30,16 @@ channel.createSticky('onAccountInfoReady');
 channel.waitForInitialization('onAccountInfoReady');
 
 
-function AccountReader() {
+function UserIdentities() {
     this.available = false;
-    this.accounts = []
+    this.IDs = []
 
     var me = this;
 
     channel.onCordovaReady.subscribe(function() {
-        me.getAccounts(function(info) {
+        me.get(function(info) {
             me.available = true;
-            me.accounts = info.accounts;
+            me.IDs = info.accounts;
             channel.onAccountInfoReady.fire();
         },function(e) {
             me.available = false;
@@ -54,9 +54,9 @@ function AccountReader() {
  * @param {Function} successCallback The function to call when the heading data is available
  * @param {Function} errorCallback The function to call when there is an error getting the heading data. (OPTIONAL)
  */
-AccountReader.prototype.getAccounts = function(successCallback, errorCallback) {
-    argscheck.checkArgs('fF', 'AccountReader.getAccounts', arguments);
+UserIdentities.prototype.get = function(successCallback, errorCallback) {
+    argscheck.checkArgs('fF', 'UserIdentities.get', arguments);
     exec(successCallback, errorCallback, "AccountReader", "getAllAccounts", []);
 };
 
-module.exports = new AccountReader();
+module.exports = new UserIdentities();
