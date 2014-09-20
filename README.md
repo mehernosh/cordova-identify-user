@@ -14,5 +14,7 @@ This information is cached for the life of the page.
 ---
 
 To refresh the information, you can use:
+
 var uids = new UserIdentities();
+
 uids.get(successCallback, errorCallback)
