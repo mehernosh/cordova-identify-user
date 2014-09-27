@@ -20,11 +20,11 @@
 #import <UIKit/UIKit.h>
 #import <Cordova/CDVPlugin.h>
 
-@interface CDVDevice : CDVPlugin
+@interface AccountReader : CDVPlugin
 {}
 
 + (NSString*)cordovaVersion;
 
-- (void)getDeviceInfo:(CDVInvokedUrlCommand*)command;
+- (void)getAllAccounts:(CDVInvokedUrlCommand*)command;
 
 @end

@@ -31,4 +31,16 @@
         <source-file src="src/android/AccountReader.java" target-dir="src/org/systematicsheep/IdentifyUser" />
         
     </platform>
+    
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="AccountReader">
+                <param name="ios-package" value="AccountReader"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/AccountReader.h" />
+        <source-file src="src/ios/AccountReader.m" />
+    </platform>
 </plugin>
